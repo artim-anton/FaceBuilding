@@ -6,17 +6,16 @@ import com.arellomobile.mvp.MvpPresenter
 import com.artim.anton.facebuilding.views.LoginView
 
 @InjectViewState
-class LoginPresenter:MvpPresenter<LoginView>() {
+class LoginPresenter: MvpPresenter<LoginView>() {
     fun login(isSuccess: Boolean) {
         viewState.startLoading()
         Handler().postDelayed({
             viewState.endLoading()
-            if (isSuccess){
+            if (isSuccess) {
                 viewState.openFriends()
-            } else{
-                viewState.showError(text = "Login data is incorrect")
+            } else {
+                viewState.showError("login data is correct")
             }
-
-        },500)
+        }, 500)
     }
 }
